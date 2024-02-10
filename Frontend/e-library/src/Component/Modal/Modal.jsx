@@ -5,6 +5,7 @@ import { addToShelfAction } from "../../Redux/Action/shelf";
 import { toast } from "react-toastify";
 import { CREATE_SHELF_RESET } from "../../Redux/Constants";
 import Spinner from "../Spinner/Spinner";
+import {motion} from "framer-motion"
 
 
 
@@ -40,7 +41,10 @@ const Modal = () => {
   return (
     <div className="fixed top-0 left-0 w-screen overflow-hidden h-screen  bg-white z-40">
       <div className=" w-8/12 h-[500px] rounded-md shadow-md border relative mx-auto bg-white mt-5 mb-8">
-        <div
+        <motion.div
+          initial={{x:"-100vw"}}
+          animate={{ x : 0 }}
+          transition={{ ease: "easeOut", duration: 0.7, delay:0.5 }}
           key={book ? book._id : ""}
           className="w-[350px] h-[450px] mx-auto my-6 border shadow-2xl rounded-md"
         >
@@ -93,7 +97,7 @@ const Modal = () => {
               </button>
             )}
           </div>
-        </div>
+        </motion.div>
         <div
           onClick={closeModalHandler}
           className="absolute top-8 right-4 text-center font-bold text-red-700 w-[30px] h-[30px] rounded-full border-2 border-red-700 hover:bg-red-300 cursor-pointer"
