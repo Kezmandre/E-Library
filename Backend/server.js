@@ -11,25 +11,37 @@ import userRouter from "./Routes/user.js";
 import bookRouter from "./Routes/book.js";
 import categoryRouter from "./Routes/category.js";
 import shelfRouter from "./Routes/shelf.js";
-
+import path from "path";
 
 const app = express();
 
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.static("public"));
 
-app.use("/user", userRouter)
-app.use("/book", bookRouter)
-app.use("/category",categoryRouter)
-app.use("/shelf",shelfRouter)
-app.get("/", (req, res) => {
-  res.status(httpStatus.OK).json({
-    status: "success",
-    payload: "Welcome! to E-Library App",
+app.use("/user", userRouter);
+app.use("/book", bookRouter);
+app.use("/category", categoryRouter);
+app.use("/shelf", shelfRouter);
+
+const __dirname = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/Frontend/e-library/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "Frontend", "e-library", "dist", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.status(httpStatus.OK).json({
+      status: "success",
+      payload: "Welcome! to E-Library App",
+    });
   });
-});
+}
 
 app.all("*", (req, res) => {
   res.status(httpStatus.NOT_FOUND).json({

@@ -3,8 +3,8 @@ import { GiBackForth } from "react-icons/gi";
 import ToolTips from "../ToolTips/ToolTips";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { deleteShelfAction, getShelvesAction } from "../../Redux/Action/shelf";
-import empty_shelf from "../Assets/Images/shelf.jpeg";
+import { getShelvesAction } from "../../Redux/Action/shelf";
+
 import ColorfulSpinner from "../ColofulSpinner/ColorfulSpinner";
 import PopUp from "../PopUp/PopUp";
 import { openModalAction } from "../../Redux/Action/modal";
@@ -20,16 +20,11 @@ const Shelf = () => {
 
   const [selectedBookId, setSelectedBookId] = useState(null);
 
-  // const deleteShelfHandler = (BookId) => {
-  //   dispatch(deleteShelfAction(BookId));
-  //   dispatch(getShelvesAction());
-
-  // };
-
   useEffect(() => {
     if (success) {
       toast.success("Book Removed from Shelf");
       dispatch({ type: DELETE_SHELF_RESET });
+      dispatch(getShelvesAction());
     }
 
     if (error) {
@@ -38,7 +33,7 @@ const Shelf = () => {
         dispatch({ type: DELETE_SHELF_RESET });
       }, 3000);
     }
-  }, [success, error]);
+  }, [dispatch, success, error]);
 
   const openModalHandler = (BookId) => {
     setSelectedBookId(BookId);
@@ -141,7 +136,11 @@ const Shelf = () => {
                 );
               })
             ) : (
-              <p className="text-2xl text-center font-semibold">Your shelf is empty</p>
+              <div className="flex justify-center item-center  lg:ml-[200px] mt-20 w-[400px]">
+                <p className="text-4xl  text-center font-semibold font-semibold">
+                  Your Shelf is Empty
+                </p>
+              </div>
             )}
           </table>
         )}

@@ -10,7 +10,8 @@ import {
 import axios from "axios";
 import { Logout } from "./User";
 
-const url = "http://localhost:3000";
+
+const url = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
 
 export const getBooksAction =
   (page = 1, search="") =>
