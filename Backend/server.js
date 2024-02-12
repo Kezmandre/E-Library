@@ -27,11 +27,11 @@ app.use("/shelf", shelfRouter);
 
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/Frontend/e-library/dist")));
+  app.use(express.static(path.join(__dirname, "/Frontend/e-library/build")));
 
   app.get("*", (req, res) =>
     res.sendFile(
-      path.resolve(__dirname, "Frontend", "e-library", "dist", "index.html")
+      path.resolve(__dirname, "Frontend", "e-library", "build", "index.html")
     )
   );
 } else {
