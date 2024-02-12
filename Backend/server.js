@@ -53,7 +53,7 @@ dbConnect()
   .then((result) => {
     console.log("connected to Database".bgGreen);
 
-    const port = config.env === "production" ? config.env : 3000;
+    const port = config.env === "production" ? process.env.PORT : 3000;
 
     app.listen(port, (err) => {
       if (err) {
