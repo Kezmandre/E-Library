@@ -9,7 +9,7 @@ import {
   LOGIN_USER_RESET,
   LOGIN_USER_SUCCESS,
 } from "../Constants";
-const url = process.env.NODE_ENV === "production" ? "" : "http://localhost:9000";
+const url = import.meta.env.VITE_NODE_ENV === "production" ? "" : "http://localhost:9000";
 
 export const loginUserAction = (user) => async (dispatch, state) => {
   const config = {

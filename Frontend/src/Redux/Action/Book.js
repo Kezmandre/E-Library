@@ -11,7 +11,7 @@ import axios from "axios";
 import { Logout } from "./User";
 
 
-const url = process.env.NODE_ENV === "production" ? "" : "http://localhost:9000";
+const url = import.meta.env.VITE_NODE_ENV === "production" ? "" : "http://localhost:9000";
 
 export const getBooksAction =
   (page = 1, search="") =>
