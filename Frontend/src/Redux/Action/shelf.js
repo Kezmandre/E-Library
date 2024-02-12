@@ -11,7 +11,7 @@ import {
 } from "../Constants";
 import { Logout } from "./User";
 
-const url = import.meta.env.VITE_NODE_ENV === "production" ? "" : "http://localhost:9000";
+const url = process.env.NODE_ENV === "production" ? "" : "http://localhost:9000";
 export const addToShelfAction =
   ({ bookId, categoryId }) =>
   async (dispatch, state) => {
