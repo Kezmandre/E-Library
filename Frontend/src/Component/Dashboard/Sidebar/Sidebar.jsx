@@ -20,10 +20,10 @@ const Sidebar = () => {
   };
   return (
     <>
-      <div className="relative w-full hidden lg:block">
-        <div className="flex justify-start items-center gap-2 pb-4 pt-4 ml-2">
+      <div className="relative w-full">
+        <div className="flex justify-start items-center gap-1 pb-4 pt-4 lg:ml-2">
           <img src={Logo} alt="" className="w-[40px] h-[40px]" />
-          <h2 className="font-inter font-bold text-xl">
+          <h2 className="font-inter font-bold text-sm lg:text-xl">
             E-Li<span className="text-green-500">bra</span>ry
           </h2>
         </div>
@@ -42,23 +42,23 @@ const Sidebar = () => {
             <Link to="/">
               <div className="flex justify-start items-center cursor-pointer p-1 mb-6 gap-2 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                 <LuLibrary className="text-2xl" />
-                <p className="font-inter font-semibold text-lg">Library</p>
+                <p className="font-inter font-semibold text-sm lg:text-lg">Library</p>
               </div>
             </Link>
             <Link to="shelf">
               <div className="flex justify-start items-center cursor-pointer p-1 mb-6 gap-2 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                 <BsBookshelf className="text-2xl" />
-                <p className="font-inter font-semibold text-lg">My shelf</p>
+                <p className="font-inter font-semibold text-sm lg:text-lg">My shelf</p>
               </div>
             </Link>
-            <div className="flex justify-start items-center cursor-pointer p-1 gap-2 mb-6 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
+            <div className="flex justify-start items-center cursor-pointer  gap-2 mb-6 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
               <MdManageAccounts className="text-2xl" />
-              <p className="font-inter font-semibold text-lg">Accounts</p>
+              <p className="font-inter font-semibold text-sm lg:text-lg">Accounts</p>
             </div>
             <Link to="request-book">
               <div className="flex justify-start items-center cursor-pointer p-1 gap-2 mb-6 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out">
                 <PiBooks className="text-2xl" />
-                <p className="font-inter font-semibold text-lg">Request Book</p>
+                <p className="font-inter font-semibold text-sm lg:text-lg">Request Book</p>
               </div>
             </Link>
             <div
@@ -66,14 +66,14 @@ const Sidebar = () => {
               className="flex justify-start items-center cursor-pointer p-1 gap-2 mb-6 text-green-600 hover:bg-green-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
             >
               <TbLogout className="text-2xl" />
-              <p className="font-inter font-semibold text-lg">Logout</p>
+              <p className="font-inter font-semibold text-sm lg:text-lg">Logout</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="lg:hidden absolute top-4 right-4 cursor-pointer">
+      {/* <div className="lg:hidden absolute top-4 right-4 cursor-pointer">
         <CgMenuGridR className="text-3xl" />
-      </div>
+      </div> */}
     </>
   );
 };
