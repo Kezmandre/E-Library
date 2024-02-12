@@ -1,6 +1,6 @@
 import express from "express";
 import validateMiddle from "../Middleware/Validation.js";
-import { bookSchema } from "../Controller/Books/bookSchema.js";
+import { bookSchema } from "../Controller/Books/BookSchema.js";
 import { Authorized, userVerification } from "../Middleware/Auth.js";
 import {
   createBooks,
