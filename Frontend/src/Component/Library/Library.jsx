@@ -15,9 +15,7 @@ const Library = () => {
   const { isModalOpen } = modal;
 
   const currentBook= isSearchActive ? foundResult : records
-  useEffect(() => {
-    dispatch(getBooksAction());
-  }, []);
+  
 
   const getNextBooks = (page) => {
     dispatch(getBooksAction(page));
@@ -27,6 +25,9 @@ const Library = () => {
     dispatch(getBookAction({ bookId: bookId }));
     dispatch(openModalAction());
   };
+  useEffect(() => {
+    dispatch(getBooksAction());
+  }, []);
 
   return (
     // <div>

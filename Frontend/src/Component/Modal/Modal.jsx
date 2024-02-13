@@ -40,13 +40,13 @@ const Modal = () => {
   }, [success, error]);
   return (
     <div className="fixed top-0 left-0 w-screen overflow-hidden h-screen  bg-white z-40">
-      <div className=" w-8/12 h-[500px] rounded-md shadow-md border relative mx-auto bg-white mt-5 mb-8">
+      <div className="w-[350px] md:w-8/12 h-[500px] rounded-md shadow-md border relative mx-auto bg-white mt-5 mb-8">
         <motion.div
           initial={{x:"-100vw"}}
           animate={{ x : 0 }}
           transition={{ ease: "easeOut", duration: 0.7, delay:0.5 }}
           key={book ? book._id : ""}
-          className="w-[350px] h-[450px] mx-auto my-6 border shadow-2xl rounded-md"
+          className=" w-[320px] md:w-[350px] h-[450px] mx-auto my-6 border shadow-2xl rounded-md"
         >
           <div className="w-[100px] h-[100px] mx-auto rounded-md my-4">
             <div className="w-full h-full">

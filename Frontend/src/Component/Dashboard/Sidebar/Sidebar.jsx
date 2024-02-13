@@ -71,9 +71,9 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      {/* <div className="lg:hidden absolute top-4 right-4 cursor-pointer">
+      <div className="lg:hidden absolute top-4 right-4 cursor-pointer">
         <CgMenuGridR className="text-3xl" />
-      </div> */}
+      </div>
     </>
   );
 };
